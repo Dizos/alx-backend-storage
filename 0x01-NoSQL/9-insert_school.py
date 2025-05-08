@@ -1,21 +1,16 @@
 #!/usr/bin/env python3
-"""
-Module for inserting a new document into a MongoDB collection
-"""
-from pymongo.collection import Collection
-from typing import Any
+"""Module to insert a new document into a MongoDB collection"""
 
-
-def insert_school(mongo_collection: Collection, **kwargs) -> Any:
+def insert_school(mongo_collection, **kwargs):
     """
-    Inserts a new document into the specified MongoDB collection based on kwargs.
+    Inserts a new document into a MongoDB collection based on kwargs.
 
     Args:
-        mongo_collection (Collection): The PyMongo collection object.
-        **kwargs: Keyword arguments representing the document fields and values.
+        mongo_collection: PyMongo collection object
+        **kwargs: Keyword arguments representing document fields
 
     Returns:
-        Any: The _id of the newly inserted document.
+        The _id of the newly inserted document
     """
     result = mongo_collection.insert_one(kwargs)
     return result.inserted_id
