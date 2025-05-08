@@ -1,2 +1,2 @@
-// List all documents in the school collection with name starting with "ALX"
+// List all documents in the school collection with name starting with ALX
 db.school.find({ name: /^ALX/ })
