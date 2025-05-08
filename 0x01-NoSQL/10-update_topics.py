@@ -1,19 +1,14 @@
 #!/usr/bin/env python3
-"""
-Module for updating topics of a school document in a MongoDB collection
-"""
-from pymongo.collection import Collection
-from typing import List
+"""Module to update topics of school documents in a MongoDB collection"""
 
-
-def update_topics(mongo_collection: Collection, name: str, topics: List[str]) -> None:
+def update_topics(mongo_collection, name, topics):
     """
-    Updates the topics of all school documents with the specified name.
+    Updates the topics field of all documents in a MongoDB collection where name matches.
 
     Args:
-        mongo_collection (Collection): The PyMongo collection object.
-        name (str): The name of the school to update.
-        topics (List[str]): The list of topics to set for the school.
+        mongo_collection: PyMongo collection object
+        name (str): The school name to match
+        topics (list): List of strings representing the topics to set
 
     Returns:
         None
