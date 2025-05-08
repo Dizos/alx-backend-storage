@@ -1,20 +1,15 @@
 #!/usr/bin/env python3
-"""
-Module for retrieving schools with a specific topic from a MongoDB collection
-"""
-from pymongo.collection import Collection
-from typing import List, Dict, Any
+"""Module to list schools with a specific topic in a MongoDB collection"""
 
-
-def schools_by_topic(mongo_collection: Collection, topic: str) -> List[Dict[str, Any]]:
+def schools_by_topic(mongo_collection, topic):
     """
-    Returns a list of schools that have a specific topic in their topics array.
+    Returns a list of schools having a specific topic in their topics field.
 
     Args:
-        mongo_collection (Collection): The PyMongo collection object.
-        topic (str): The topic to search for in the topics array.
+        mongo_collection: PyMongo collection object
+        topic (str): The topic to search for
 
     Returns:
-        List[Dict[str, Any]]: A list of documents for schools with the specified topic.
+        list: List of documents where the topics field contains the specified topic
     """
     return list(mongo_collection.find({"topics": topic}))
